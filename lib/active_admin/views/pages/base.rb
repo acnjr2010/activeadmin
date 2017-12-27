@@ -24,12 +24,6 @@ module ActiveAdmin
 
         def build_active_admin_head
           within head do
-            html_title [title, helpers.active_admin_namespace.site_title(self)].compact.join(" | ")
-
-            active_admin_application.stylesheets.each do |style, options|
-              text_node stylesheet_link_tag(style, options).html_safe
-            end
-
             active_admin_namespace.meta_tags.each do |name, content|
               text_node(tag(:meta, name: name, content: content))
             end
